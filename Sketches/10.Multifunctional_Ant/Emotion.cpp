@@ -267,8 +267,10 @@ byte wheel_right[][8] =
    0x7E, 0xC3, 0x81, 0x99, 0x99, 0x81, 0xC3, 0x7E,
 };
 //wheel
+/**
 void wheel(int mode, int delay_ms)
-{
+{ 
+
   if (mode == 1)
   {
     emotion_time_next = millis();
@@ -296,6 +298,20 @@ void wheel(int mode, int delay_ms)
         emotion_count = 0;
     }
   }
+}
+**/
+void wheel(int mode, int delay_ms) {
+  emotion_time_next = millis();
+  if (emotion_time_next - emotion_time_now >= delay_ms)
+  {
+    emotion_time_now = emotion_time_next;
+    int count = sizeof(wheel_right) / sizeof(wheel_right[0]);
+    matrix.showStaticArray(wheel_right[emotion_count], wheel_right[emotion_count]);
+    emotion_count++;
+    if (emotion_count >= count)
+      emotion_count = 0;
+  }
+  clearEmtions();
 }
 
 
