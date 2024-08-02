@@ -10,15 +10,16 @@
 #define MID_OFFSET   0
 #define BACK_OFFSET  0
 
+// This only runs once
 void setup() {
   Ant_Setup();
-  
   //NOTE：The ant robot is adjusted by modifying the parameters.
   Ant_Correct_Angle(FRONT_OFFSET,MID_OFFSET,BACK_OFFSET); //Calibrate ant Servo(Each robot is different, depending on your installation process)
   delay(2000);
 }
 
 void loop() {
+  /*
   ant_run_forth(2,7);//Forward
   delay(1000);
   ant_run_back(2,7);//Backwards
@@ -31,4 +32,5 @@ void loop() {
   delay(1000);
   ant_run_situ_right(2,7);//Turn right in situ
   delay(1000);
+  */
 }
